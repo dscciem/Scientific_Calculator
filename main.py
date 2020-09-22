@@ -53,14 +53,6 @@ def btn_click_func(event):
     print(text)
     textField.insert(END, text)
 
-    if text == 'x':
-        textField.insert(END, "*")
-        return
-
-    elif text == '÷':
-        textField.insert(END, "/")
-        return
-
 def sccalc(e):
 
     b = e.widget
@@ -71,26 +63,30 @@ def sccalc(e):
 
     if text == '%':
         textField.insert(END, "%")
-        return
 
     elif text == 'x!':
         print("Calculate factorial")
-        #textField.insert(END, "!")
-        #result = str(math.factorial(float(num)))
+        result = str(math.factorial(float(num)))
 
 
     elif text == 'π':
         print("calculate pi")
+        if num=="":
+            result = str(math.pi)
+        else:
+            result = str(float(num)*math.pi)
 
-    elif text == 'Ans':
-        print("calculate ans")
+    elif text == '1/x':
+        print("calculate inverse")
+        result = str(1/(float(num)))
 
     elif text == '√':
-        pass
+        result = str(math.sqrt(float(num)))
 
 
     elif text == 'x²':
         print("calculate square")
+
 
     elif text == 'x³':
         print("calculate cube")
@@ -98,20 +94,26 @@ def sccalc(e):
     elif text == '^':
         print("calculate power")
 
+
     elif text == 'sin':
         print("calculate sin")
+        result = str(math.sin(float(num)))
 
     elif text == 'cos':
         print("calculate cos")
+        result = str(math.cos(float(num)))
 
     elif text == 'tan':
         print("calculate tan")
+        result = str(math.tan(float(num)))
 
     elif text == 'log':
         print("calculate log")
+        result = str(math.log10(float(num)))
 
     elif text == 'ln':
         print("calculate natural log")
+        result = str(math.log(float(num)))
 
     elif text == 'nCr':
         print("calculate combination")
@@ -120,7 +122,7 @@ def sccalc(e):
         print("calculate permutation")
 
     textField.delete(0, END)
-    textField.insert(END, text)
+    textField.insert(END, result)
 
 # creating buttons from 1 to 9 by using grid
 
@@ -141,11 +143,11 @@ delBtn.grid(row=0, column=3)
 acBtn = Button(buttonFrame, text='AC', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white', command=allclear)
 acBtn.grid(row=0, column=4)
 
-mulBtn = Button(buttonFrame, text='x', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+mulBtn = Button(buttonFrame, text='*', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 mulBtn.grid(row=1, column=3)
 mulBtn.bind('<Button-1>', btn_click_func)
 
-divBtn = Button(buttonFrame, text='÷', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+divBtn = Button(buttonFrame, text='/', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 divBtn.grid(row=1, column=4)
 divBtn.bind('<Button-1>', btn_click_func)
 
@@ -169,9 +171,9 @@ piBtn = Button(buttonFrame, text='π', font=font, relief='ridge', width=4, activ
 piBtn.grid(row=3, column=2)
 piBtn.bind('<Button-1>', sccalc)
 
-ansBtn = Button(buttonFrame, text='Ans', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
-ansBtn.grid(row=3, column=3)
-#ansbtn.bind('<Button-1>', btn_click_func)
+inverseBtn = Button(buttonFrame, text='1/x', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+inverseBtn.grid(row=3, column=3)
+inverseBtn.bind('<Button-1>', sccalc)
 
 equalBtn = Button(buttonFrame, text='=', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white', command= lambda: equals())
 equalBtn.grid(row=3, column=4)
