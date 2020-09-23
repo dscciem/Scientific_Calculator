@@ -20,16 +20,15 @@ textField.pack(side=TOP, pady=20, fill=X, padx=10)
 buttonFrame = Frame(window)
 buttonFrame.pack(side=TOP)
 
-
 # functions
-#def power():
 
-#equals function
+# equals function
 def equals():
    ans = textField.get()
    ans = eval(ans)
    textField.delete(0, END)
    textField.insert(0, ans)
+
 # delete function
 def delete():
     exp = textField.get()
@@ -41,15 +40,21 @@ def delete():
 def allclear():
     textField.delete(0, END)
 
-    # button click function
-
+# button click function
 def btn_click_func(event):
     print("Button clicked")
     button = event.widget
     text = button['text']
     print(text)
-    textField.insert(END, text)
+    if text == 'x':
+        textField.insert(END, '*')
 
+    elif text == '÷':
+        textField.insert(END, '/')
+    else:
+        textField.insert(END, text)
+
+# scientific calculator function
 def sccalc(event):
     print("sc button clicked")
     button = event.widget
@@ -64,10 +69,9 @@ def sccalc(event):
         else:
             result = str(math.e*float(num))
 
-    if text == 'x!':
+    elif text == 'x!':
         print("Calculate factorial")
         result = str(math.factorial(float(num)))
-
 
     elif text == 'π':
         print("calculate pi")
@@ -128,11 +132,10 @@ def sccalc(event):
     textField.insert(END, result)
 
 # creating buttons from 1 to 9 by using grid
-
 temp = 9
 for i in range(0, 3):
     j = 2
-    while (j>=0):
+    while (j>= 0):
         btn = Button(buttonFrame, text=str(temp), font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
         btn.grid(row=i, column=j)
         temp -= 1
@@ -146,11 +149,11 @@ delBtn.grid(row=0, column=3)
 acBtn = Button(buttonFrame, text='AC', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white', command=allclear)
 acBtn.grid(row=0, column=4)
 
-mulBtn = Button(buttonFrame, text='*', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+mulBtn = Button(buttonFrame, text='x', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 mulBtn.grid(row=1, column=3)
 mulBtn.bind('<Button-1>', btn_click_func)
 
-divBtn = Button(buttonFrame, text='/', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+divBtn = Button(buttonFrame, text='÷', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 divBtn.grid(row=1, column=4)
 divBtn.bind('<Button-1>', btn_click_func)
 
