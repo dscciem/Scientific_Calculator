@@ -2,7 +2,7 @@
 A scientific calculator built using <b>thinker</b> libary of <b>python</b>.
 
 <p align="center">
-	<img src="calculator.png" height="750">
+	<img src="calculator.png" height="500">
 </p>
 
 
