@@ -22,18 +22,13 @@ buttonFrame.pack(side=TOP)
 
 
 # functions
-
-# rad function
-# pi function
-# def pi():
-
-# delete function
+#equals function
 def equals():
    ans = textField.get()
    ans = eval(ans)
    textField.delete(0, END)
    textField.insert(0, ans)
-
+# delete function
 def delete():
     exp = textField.get()
     exp = exp[0:len(exp)-1]
@@ -53,25 +48,25 @@ def btn_click_func(event):
     print(text)
     textField.insert(END, text)
 
-def sccalc(e):
-
-    b = e.widget
-    text = b['text']
+def sccalc(event):
+    print("sc button clicked")
+    button = event.widget
+    text = button['text']
     print(text)
     num = textField.get()
     result = ''
 
-    if text == '%':
-        textField.insert(END, "%")
+    #if text == '%':
+     #   textField.insert(END, "%")
 
-    elif text == 'x!':
+    if text == 'x!':
         print("Calculate factorial")
         result = str(math.factorial(float(num)))
 
 
     elif text == 'π':
         print("calculate pi")
-        if num=="":
+        if num == "":
             result = str(math.pi)
         else:
             result = str(float(num)*math.pi)
@@ -86,13 +81,23 @@ def sccalc(e):
 
     elif text == 'x²':
         print("calculate square")
+        result = math.pow(float(num), 2)
 
 
     elif text == 'x³':
         print("calculate cube")
+        result = math.pow(float(num), 3)
 
     elif text == '^':
-        print("calculate power")
+        textField.insert(END, '^')
+        #base, power = num.split('^')
+        #print(base)
+        #print(power)
+        #result = base**power
+        #result = str(math.pow(float(base), float(power)))
+        #result = eval(textField.get().replace('^', '**'))
+        return result
+
 
 
     elif text == 'sin':
