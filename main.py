@@ -56,8 +56,11 @@ def sccalc(event):
     num = textField.get()
     result = ''
 
-    #if text == '%':
-     #   textField.insert(END, "%")
+    if text == 'e':
+        if num == "":
+            result = str(math.e)
+        else:
+            result = str(math.e*float(num))
 
     if text == 'x!':
         print("Calculate factorial")
@@ -120,11 +123,13 @@ def sccalc(event):
         print("calculate natural log")
         result = str(math.log(float(num)))
 
-    elif text == 'nCr':
-        print("calculate combination")
+    elif text == 'Deg':
+        print("calculate degree")
+        result = str(math.degrees(float(num)))
 
-    elif text == 'nPr':
-        print("calculate permutation")
+    elif text == 'Rad':
+        print("calculate radian")
+        result = str(math.radians(float(num)))
 
     textField.delete(0, END)
     textField.insert(END, result)
@@ -232,15 +237,15 @@ bracescloseBtn = Button(buttonFrame, text=')', font=font, relief='ridge', width=
 bracescloseBtn.grid(row=6, column=1)
 bracescloseBtn.bind('<Button-1>', btn_click_func)
 
-combinationBtn = Button(buttonFrame, text='nCr', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+combinationBtn = Button(buttonFrame, text='Deg', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 combinationBtn.grid(row=6, column=2)
 combinationBtn.bind('<Button-1>', sccalc)
 
-permutationBtn = Button(buttonFrame, text='nPr', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+permutationBtn = Button(buttonFrame, text='Rad', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 permutationBtn.grid(row=6, column=3)
 permutationBtn.bind('<Button-1>', sccalc)
 
-percentBtn = Button(buttonFrame, text='%', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+percentBtn = Button(buttonFrame, text='e', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 percentBtn.grid(row=6, column=4)
 percentBtn.bind('<Button-1>', sccalc)
 
