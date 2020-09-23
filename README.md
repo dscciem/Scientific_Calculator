@@ -1,5 +1,5 @@
 # Scientific_Calculator
-A scientific calculator built using <b>thinker</b> libary of <b>python</b>.
+A scientific calculator built using <b>tkinter</b> libary of <b>python</b>.
 
 <p align="center">
 	<img src="calculator.png" height="500">
