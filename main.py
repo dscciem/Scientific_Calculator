@@ -22,6 +22,8 @@ buttonFrame.pack(side=TOP)
 
 
 # functions
+#def power():
+
 #equals function
 def equals():
    ans = textField.get()
@@ -78,30 +80,21 @@ def sccalc(event):
         print("calculate inverse")
         result = str(1/(float(num)))
 
-    elif text == '√':
+    elif text == '²√':
+        print("Calculate square root")
         result = str(math.sqrt(float(num)))
 
+    elif text == '³√':
+        print("calculate cube root")
+        result = math.pow(float(num), (1.0/3.0))
 
     elif text == 'x²':
         print("calculate square")
         result = math.pow(float(num), 2)
 
-
     elif text == 'x³':
         print("calculate cube")
         result = math.pow(float(num), 3)
-
-    elif text == '^':
-        textField.insert(END, '^')
-        #base, power = num.split('^')
-        #print(base)
-        #print(power)
-        #result = base**power
-        #result = str(math.pow(float(base), float(power)))
-        #result = eval(textField.get().replace('^', '**'))
-        return result
-
-
 
     elif text == 'sin':
         print("calculate sin")
@@ -189,19 +182,19 @@ equalBtn = Button(buttonFrame, text='=', font=font, relief='ridge', width=4, act
 equalBtn.grid(row=3, column=4)
 equalBtn.bind('<Button-1>')
 
-sqrtBtn = Button(buttonFrame, text='√', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+sqrtBtn = Button(buttonFrame, text='x²', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 sqrtBtn.grid(row=4, column=0)
 sqrtBtn.bind('<Button-1>', sccalc)
 
-sqrBtn = Button(buttonFrame, text='x²', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+sqrBtn = Button(buttonFrame, text='x³', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 sqrBtn.grid(row=4, column=1)
 sqrBtn.bind('<Button-1>', sccalc)
 
-cubeBtn = Button(buttonFrame, text='x³', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+cubeBtn = Button(buttonFrame, text='²√', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 cubeBtn.grid(row=4, column=2)
 cubeBtn.bind('<Button-1>', sccalc)
 
-powBtn = Button(buttonFrame, text='^', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
+powBtn = Button(buttonFrame, text='³√', font=font, relief='ridge', width=4, activebackground='grey', activeforeground='white')
 powBtn.grid(row=4, column=3)
 powBtn.bind('<Button-1>', sccalc)
 
