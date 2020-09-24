@@ -11,4 +11,6 @@ A scientific calculator built using <b>tkinter</b> libary of <b>python</b>.
 
 Open <b>powershell window</b> or <b>command prompt</b> and run the command give below
 
-`$ python main.py`
+```
+$ python main.py
+```
